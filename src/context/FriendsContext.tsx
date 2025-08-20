@@ -225,6 +225,7 @@ export const FriendsProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
       if (friendsError) {
         console.error('Error loading friends for study sessions:', friendsError);
+        setStudySessions([]);
         return;
       }
 
@@ -238,6 +239,7 @@ export const FriendsProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
       if (error) {
         console.error('Error loading study sessions:', error);
+        setStudySessions([]);
         return;
       }
 
