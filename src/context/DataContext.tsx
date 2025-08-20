@@ -85,16 +85,16 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
         });
       } else {
         // Create default settings if none exist
-        const { error: insertError } = await supabase
+        const { error: upsertError } = await supabase
           .from('user_settings')
-          .insert({
+          .upsert({
             user_id: user.id,
             work_time: 25,
             break_time: 5
           });
 
-        if (insertError) {
-          console.error('Error creating default user settings:', insertError);
+        if (upsertError) {
+          console.error('Error creating default user settings:', upsertError);
         }
       }
     } catch (error) {
